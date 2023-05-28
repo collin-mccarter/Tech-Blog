@@ -1,0 +1,44 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-header text-center">
+            <h2 class="blogTitle">{{title}}</h2>
+        </div>
+        <div class="card-body">
+            <p class="text-center blogDescTwo">{{description}}</p>
+                <div class="text-center">
+                    <footer class="blogCreate text-center blockquote-footer">Created by {{user.username}} on {{format_date date_created}}</footer>
+                </div>
+        </div>
+    </div>
+</div>
+
+{{#if logged_in}}
+
+<form class="new-comment-form formCont d-flex flex-wrap justify-content-center" data-blogid={{id}}>
+    <div class="textAreaCont p-2">
+        <textarea id='comment_description' name="comment-body" placeholder="Enter a comment here..." cols="30"
+            rows="2"></textarea>
+    </div>
+    <div class="btnComment p-2">
+        <button class="button btn btn-success" type="submit">Add Comment</button>
+    </div>
+</form>
+
+{{/if}}
+
+<h2 class="text-center">Comments</h2>
+{{#each comments as |comment|}}
+<div class="commentCont card">
+    <div class="card-header commentOwner">
+        {{comment.user.username}} 
+    </div>
+    <div class="card-body commentText mb-2">
+        {{comment.comment_description}}    
+    </div>
+    <div class="blockquote-footer">
+        {{format_date date_created}}
+    </div>
+</div>
+{{/each}}
+
+<script src="/js/comments.js"></script>
