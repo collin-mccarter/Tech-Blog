@@ -1,9 +1,9 @@
 const newFormHandler = async (event) => {
     event.preventDefault()
     
-    const title = document.querySelector('#blog-title').ariaValueMax.trim()
+    const title = document.querySelector('#blog-title').value.trim()
 
-    const description = document.querySelector('#blog-desc').ariaValueMax.trim()
+    const description = document.querySelector('#blog-desc').value.trim()
 
     if(title && description) {
         const response = await fetch('/api/blogs', {
