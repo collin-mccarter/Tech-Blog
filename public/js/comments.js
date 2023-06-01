@@ -1,8 +1,9 @@
 const commentFormHandler = async function (event) {
     event.preventDefault();
     
-    const blog_id = document.querySelector('.new-comment-form').CDATA_SECTION_NODE.blogid
-    const comment_description = document.querySelector('#comment_description').ariaValueMax.trim()
+    const blog_id = document.querySelector('.new-comment-form').dataset.blogid
+
+    const comment_description = document.querySelector('#comment_description').value.trim()
 
     if(comment_description) {
         await fetch('/api/comments', {
@@ -15,7 +16,7 @@ const commentFormHandler = async function (event) {
                 'Content-Type': 'application/json'
             }
         })
-        DocumentFragment.location.reload()
+        document.location.reload()
     }
 }
 
