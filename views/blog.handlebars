@@ -28,6 +28,7 @@
 
 <h2 class="text-center">Comments</h2>
 {{#each comments as |comment|}}
+
 <div class="commentCont card">
     <div class="card-header commentOwner">
         {{comment.user.username}} 
@@ -39,6 +40,7 @@
         {{format_date date_created}}
     </div>
 </div>
+
 {{/each}}
 
 <script src="/js/comments.js"></script>
